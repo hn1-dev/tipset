@@ -1,0 +1,33 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: '0 5 * * *' # Detta betyder varje morgon kl 05:00 UTC
+  workflow_dispatch:      # Detta gör att du kan starta den manuellt för att testa
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kod
+        uses: actions/checkout@v4
+
+      - name: Installera Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Installera bibliotek
+        run: |
+          pip install -r requirements.txt
+
+      - name: Kör skriptet
+        run: python app.py
+
+      - name: Spara och skicka ändringar
+        run: |
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git add .
+          git commit -m "Automatisk uppdatering" || exit 0
+          git push
