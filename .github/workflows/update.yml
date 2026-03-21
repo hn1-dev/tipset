@@ -2,20 +2,20 @@ name: Daily Update
 
 on:
   schedule:
-    - cron: '0 5 * * *' # Detta betyder varje morgon kl 05:00 UTC
-  workflow_dispatch:      # Detta gör att du kan starta den manuellt för att testa
+    - cron: '0 5 * * *' 
+  workflow_dispatch:      
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout kod
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5 # Uppdaterad till v5
 
       - name: Installera Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6 # Uppdaterad till v6
         with:
-          python-version: '3.9'
+          python-version: '3.11' # Passade på att uppgradera Python till en modernare version också
 
       - name: Installera bibliotek
         run: |
