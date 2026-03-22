@@ -1,2 +1,5 @@
 streamlit
 pandas
+os
+gspread
+matplotlib
