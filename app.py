@@ -5,7 +5,7 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 
 # ── CONFIG ────────────────────────────────────────────────────────────────────
-st.set_page_config(page_title="Mazarintipset", layout="wide", page_icon="⚽")
+st.set_page_config(page_title="Mazarintipset", layout="wide")
 
 # ── COLORS ───────────────────────────────────────────────────────────────────
 BG      = "#002944"
