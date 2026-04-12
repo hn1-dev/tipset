@@ -23,7 +23,7 @@ jobs:
       - name: Kör skripten i ordning
         run: |
           python league_current_standings.py
-          python app1.py
+          python app.py
 
       - name: Spara och skicka ändringar
         run: |
