@@ -2,8 +2,9 @@ name: Automatisk uppdatering
 
 on:
   schedule:
-    # 30 = Minut, 17 = Timme (UTC), * = Varje dag, * = Varje månad, * = Varje veckodag
-    - cron: '30 17 * * *'
+    - cron: '20 18 * * *'
+  workflow_dispatch: # Detta lägger till en "Kör manuellt"-knapp
+
 
 jobs:
   uppdatera:
