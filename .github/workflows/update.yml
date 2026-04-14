@@ -2,7 +2,8 @@ name: Automatisk uppdatering
 
 on:
   schedule:
-    - cron: '0 8 * * 1'  # Kl 10:00 svensk sommartid (UTC+2)
+    # 30 = Minut, 17 = Timme (UTC), * = Varje dag, * = Varje månad, * = Varje veckodag
+    - cron: '30 17 * * *'
 
 jobs:
   uppdatera:
@@ -22,7 +23,7 @@ jobs:
 
       - name: Kör skripten i ordning
         run: |
-          python league_current_standings.py
+          python update_standings.py
           python app.py
 
       - name: Spara och skicka ändringar
